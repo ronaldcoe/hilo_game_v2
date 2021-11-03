@@ -1,7 +1,7 @@
 from random import randint
 class Deck:
     def __init__(self, shuffled = True):
-        suits = ["Hearts", "Cubs", "Diamonds", "Spades"]
+        suits = ["Hearts", "Clubs", "Diamonds", "Spades"]
         values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
         self.my_deck = []
         for suit in suits:
@@ -19,6 +19,16 @@ class Deck:
     
     def get_value(self, card):
         split_string = card.split("of")
-        split_string[0] = split_string[0].strip()
-        return split_string[0]
+        value = split_string[0].strip()
+        if value == "Ace":
+            value = 1
+        elif value == "Jack":
+            value = 11
+        elif value == "Queen":
+            value = 12
+        elif value == "King":
+            value = 13
+        else:
+            value = int(value)
+        return value
 
