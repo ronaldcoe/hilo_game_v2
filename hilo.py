@@ -5,25 +5,47 @@ class Hilo_Game:
         self.points = 300
         self.top_card = self.deck.my_deck.pop(0)
         self.exit = False
+        self.input_validation = False
+        self.cont_validation = False
         self.user_input = ""
 
     def game_loop(self):
         while not self.exit:
             self.get_input()
             self.show_higher_lower()
-            self.cont()
             if len(self.deck.my_deck) < 1 or self.points <= 0:
                 self.exit = True
+                self.points = 0
+            else:
+                self.cont()                
         print(f"Your score is {self.points}! Thank you for playing.")
 
     def get_input(self):
-        print(f"The card is the {self.top_card}. Will the next one be higher or lower? (h/l)")
-        self.user_input = input(">> ")
+        while not self.input_validation:        
+            print(f"The card is the {self.top_card}. Will the next one be higher or lower? (h/l)")
+            self.user_input = input(">> ")
+            if self.user_input.lower() == "h" or self.user_input.lower() == "l":
+                self.input_validation = True
+            else:
+                print("Sorry, that is not a valid response. Let's try again")
+                self.input_validation = False
+        self.input_validation = False
+        
 
     def cont(self):
-        do_cont = input(f"You have {self.points} points. Do you want to continue?(y/n) \n>> ")
-        if do_cont == "n":
-            self.exit = True 
+        while not self.cont_validation:
+            do_cont = input(f"You have {self.points} points. Do you want to continue?(y/n) \n>> ")
+            if do_cont.lower() == "n" or do_cont.lower() == "y":
+                if do_cont.lower() == "n":
+                    self.exit = True 
+                elif do_cont.lower() == 'y':
+                    self.exit = False
+                self.cont_validation = True
+            else:
+                print("Sorry, that is not a valid response. Let's try again")
+                self.cont_validation = False
+        self.cont_validation = False
+
 
     def show_higher_lower(self):
         old_value = self.deck.get_value(self.top_card)
@@ -43,7 +65,7 @@ class Hilo_Game:
             else:
                 print(f"The next card was {self.top_card}. You lose 75 points.")
                 self.points -= 75
-        else:
-            print(f"The next card was {self.top_card}. You lose 75 points.")
-            self.points -= 75
+        # else:
+        #     print(f"The next card was {self.top_card}. You lose 75 points.")
+        #     self.points -= 75
 
