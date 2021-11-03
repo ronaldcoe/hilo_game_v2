@@ -1,7 +1,7 @@
 from random import randint
 class Deck:
     def __init__(self, shuffled = True):
-        suits = ["Hearts", "Cubs", "Diamonds", "Spades"]
+        suits = ["Hearts", "Clubs", "Diamonds", "Spades"]
         values = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
         self.my_deck = []
         for suit in suits:
