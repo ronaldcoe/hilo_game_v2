@@ -29,7 +29,6 @@ class Hilo_Game:
         old_value = self.deck.get_value(self.top_card)
         self.top_card = self.deck.my_deck.pop(0)
         new_value = self.deck.get_value(self.top_card)
-        print(new_value, old_value)
         if new_value > old_value:
             if self.user_input == "h":
                 print(f"The next card was {self.top_card}! You win 100 points.")
