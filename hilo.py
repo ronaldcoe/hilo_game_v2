@@ -12,7 +12,7 @@ class Hilo_Game:
             self.get_input()
             self.show_higher_lower()
             self.cont()
-            if len(self.deck.my_deck) < 1:
+            if len(self.deck.my_deck) < 1 or self.points <= 0:
                 self.exit = True
         print(f"Your score is {self.points}! Thank you for playing.")
 
