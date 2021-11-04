@@ -16,6 +16,8 @@ class Hilo_Game:
             if len(self.deck.my_deck) < 1 or self.points <= 0:
                 self.exit = True
                 self.points = 0
+            elif self.user_input.lower() == "e":
+                self.exit = True
             else:
                 self.cont()                
         print(f"Your score is {self.points}! Thank you for playing.")
@@ -25,6 +27,8 @@ class Hilo_Game:
             print(f"The card is the {self.top_card}. Will the next one be higher or lower? (h/l)")
             self.user_input = input(">> ")
             if self.user_input.lower() == "h" or self.user_input.lower() == "l":
+                self.input_validation = True
+            elif self.user_input.lower() == "e":
                 self.input_validation = True
             else:
                 print("Sorry, that is not a valid response. Let's try again")
