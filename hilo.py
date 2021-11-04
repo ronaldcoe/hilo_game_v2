@@ -17,10 +17,9 @@ class Hilo_Game:
                 self.exit = True
                 self.points = 0
             elif self.user_input.lower() == "e":
-                self.exit = True
-            else:
-                self.cont()                
+                self.exit = True             
         print(f"Your score is {self.points}! Thank you for playing.")
+
 
     def get_input(self):
         while not self.input_validation:        
@@ -34,21 +33,6 @@ class Hilo_Game:
                 print("Sorry, that is not a valid response. Let's try again")
                 self.input_validation = False
         self.input_validation = False
-        
-
-    def cont(self):
-        while not self.cont_validation:
-            do_cont = input(f"You have {self.points} points. Do you want to continue?(y/n) \n>> ")
-            if do_cont.lower() == "n" or do_cont.lower() == "y":
-                if do_cont.lower() == "n":
-                    self.exit = True 
-                elif do_cont.lower() == 'y':
-                    self.exit = False
-                self.cont_validation = True
-            else:
-                print("Sorry, that is not a valid response. Let's try again")
-                self.cont_validation = False
-        self.cont_validation = False
 
 
     def show_higher_lower(self):
@@ -69,7 +53,7 @@ class Hilo_Game:
             else:
                 print(f"The next card was {self.top_card}. You lose 75 points.")
                 self.points -= 75
-        # else:
-        #     print(f"The next card was {self.top_card}. You lose 75 points.")
-        #     self.points -= 75
+        else:
+            print(f"The next card was {self.top_card}. You lose 75 points.")
+            self.points -= 75
 
