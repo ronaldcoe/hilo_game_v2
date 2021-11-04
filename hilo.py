@@ -41,19 +41,19 @@ class Hilo_Game:
         new_value = self.deck.get_value(self.top_card)
         if new_value > old_value:
             if self.user_input == "h":
-                print(f"The next card was {self.top_card}! You win 100 points.")
+                print(f"The next card was {self.top_card}! You win 100 points.\n You have {self.points} points.")
                 self.points += 100
             else:
-                print(f"The next card was {self.top_card}. You lose 75 points.")
+                print(f"The next card was {self.top_card}. You lose 75 points.\n You have {self.points} points.")
                 self.points -= 75
         elif new_value < old_value:
             if self.user_input == "l":
-                print(f"The next card was {self.top_card}! You win 100 points.")
+                print(f"The next card was {self.top_card}! You win 100 points.\n You have {self.points} points.")
                 self.points += 100
             else:
-                print(f"The next card was {self.top_card}. You lose 75 points.")
+                print(f"The next card was {self.top_card}. You lose 75 points.\n You have {self.points} points.")
                 self.points -= 75
         else:
-            print(f"The next card was {self.top_card}. You lose 75 points.")
+            print(f"The next card was {self.top_card}. You lose 75 points.\n You have {self.points} points.")
             self.points -= 75
 
