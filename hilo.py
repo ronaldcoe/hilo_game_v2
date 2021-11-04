@@ -65,7 +65,7 @@ class Hilo_Game:
             else:
                 print(f"The next card was {self.top_card}. You lose 75 points.")
                 self.points -= 75
-        # else:
-        #     print(f"The next card was {self.top_card}. You lose 75 points.")
-        #     self.points -= 75
+        else:
+            print(f"The next card was {self.top_card}. You lose 75 points.")
+            self.points -= 75
 
